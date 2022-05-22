@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-int a[50][50], i, j, n;
+int a[50][50], i, j, nrNoduri,nrArce;
 ifstream f("graf.txt");
 
 
@@ -25,9 +25,9 @@ ifstream f("graf.txt");
 //
 void afisareMatrice(int matrice[50][50])
 {
-	for (i = 1; i <= n; i++)
+	for (i = 1; i <= nrNoduri; i++)
 	{
-		for (j = 1; j <= n; j++)
+		for (j = 1; j <= nrNoduri; j++)
 		{
 			cout << a[i][j]<<" ";
 
@@ -49,15 +49,18 @@ void afisareMatrice(int matrice[50][50])
 //}
 int main()
 {
-	f >> n;
+	f >> nrNoduri;
 	while (f >> i >> j) {
 	
 		a[i][j] = 1;
-
+		nrArce++;
 	}
 
 	afisareMatrice(a);
+	cout << "Graful are " << nrArce << "arce" << endl;
 
+
+	f.close();
 	//int nrNod = 0;
 	//nrNod=citireMatrice(a);
 	//afisareMatrice(a);
