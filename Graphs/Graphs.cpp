@@ -1,4 +1,4 @@
-//Grafuri orientate
+//Grafuri orientate matrice si lista de adiacenta
 
 #include <iostream>
 #include <fstream>
@@ -83,12 +83,29 @@ void afisareVectoriGrade(int gradeExterne[50], int gradeInterne[50])
 {
 	cout <<endl<< "Grade externe din vector:" << endl;
 	for (i = 1; i <= nrNoduri; i++)
-		cout << "Gradul extern pentru nodul " << i << " este " << gradeExterne[i]<<endl;
+		cout << "Gradul extern pentru varful " << i << " este " << gradeExterne[i]<<endl;
 	cout <<endl<< "Grade interne din vector:" << endl;
 	for (j = 1; j <= nrNoduri; j++)
-		cout << "Gradul intern pentru nodul " << j << " este " << gradeInterne[j] << endl;
+		cout << "Gradul intern pentru varful " << j << " este " << gradeInterne[j] << endl;
 
 }
+
+void afisareListaDeAdiacenta(int matrice[50][50])
+{
+
+	cout << endl<<"Lista de adiacenta:" << endl;
+	for (i = 1; i <= nrNoduri; i++)
+	{
+		cout << i << ": ";
+		for (j = 1; j <= nrNoduri; j++)
+			if (a[i][j] == 1)
+				cout << j << " ";
+		cout << endl;
+	}
+
+}
+
+
 int main()
 {
 	f >> nrNoduri;
@@ -103,7 +120,9 @@ int main()
 	calculGradNod(a, nrNoduri);
 	creareVectoriGrade(a, gradeExterne, gradeInterne);
 	afisareVectoriGrade(gradeExterne, gradeInterne);
+	afisareListaDeAdiacenta(a);
 	f.close();
+
 	//int nrNod = 0;
 	//nrNod=citireMatrice(a);
 	//afisareMatrice(a);
